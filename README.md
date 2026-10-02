@@ -1,27 +1,27 @@
 # SentimentSphere: AI-Powered Customer Review Sentiment Analysis
 
-An interactive app that classifies customer review sentiment, compares two approaches, and surfaces the themes behind negative feedback, so a business can see what customers are unhappy about and why.
+Star ratings tell you *how* customers feel, but not *why*. I built SentimentSphere to dig into the review text itself: classify sentiment, compare two approaches, and find the complaints that keep coming up in negative reviews.
 
 **[Live Demo]([link])** | **[Preview](#preview)**
 
-## Problem Statement
-Star ratings don't explain why customers are satisfied or not. This project analyzes review text to measure sentiment, compare modeling approaches, and find the recurring complaints that drive negative reviews.
+## Why I Built This
+A 2-star rating doesn't tell a business what to fix. I wanted to see if review text could answer that, and whether a simple trained model would beat a basic word-list approach.
 
 ## Dataset
 - **Source:** [Women's E-Commerce Clothing Reviews (Kaggle)](https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews)
-- **Size:** [X] reviews after removing [Y] rows with empty text
-- **Key fields:** Review Text, Rating, Recommended IND, Age, Department Name, Class Name
+- **Size:** [X] reviews after dropping [Y] rows with no review text
+- **Fields I used:** Review Text, Rating, Recommended IND, Age, Department Name, Class Name
 
-## Tools Used
+## Tools
 [JavaScript / Python] | [NLTK / scikit-learn] | [Chart library] | [Netlify / Streamlit]
 
-## Approach
-1. **Cleaning:** removed empty reviews, handled quoted text, lowercased and tokenized, removed stop-words
-2. **Labeling:** mapped star ratings to sentiment (4-5 positive, 3 neutral, 1-2 negative)
-3. **Model 1, lexicon baseline:** word-list scoring with negation handling
-4. **Model 2, Naive Bayes:** trained on [TF-IDF / word counts] with an 80/20 train-test split
-5. **Evaluation:** accuracy, precision, recall, F1, and confusion matrix for both models
-6. **Theme analysis:** top keywords and recurring topics in negative reviews
+## How I Built It
+1. **Cleaned the text:** removed empty reviews, handled quoted commas, lowercased, tokenized, and dropped stop-words.
+2. **Created labels from star ratings:** 4-5 stars as positive, 3 as neutral, 1-2 as negative.
+3. **Started with a simple baseline:** a word-list (lexicon) scorer that also handles negations like "not good."
+4. **Trained a Naive Bayes model:** using [TF-IDF / word counts] with an 80/20 train-test split.
+5. **Compared both models** on accuracy, precision, recall, F1, and a confusion matrix.
+6. **Looked at what customers complain about:** top keywords and recurring themes in negative reviews.
 
 ## Results
 | Model | Accuracy | Precision | Recall | F1 |
@@ -29,30 +29,30 @@ Star ratings don't explain why customers are satisfied or not. This project anal
 | Lexicon baseline | [XX]% | [XX] | [XX] | [XX] |
 | Naive Bayes | [XX]% | [XX] | [XX] | [XX] |
 
-[One sentence on which model performed better and why, based on your results.]
+[One or two sentences on which model did better and why, based on your actual numbers.]
 
-## Key Insights
+## What I Found
 1. [e.g., X% of negative reviews mention fit or sizing]
 2. [e.g., Department Y has the lowest share of positive reviews]
-3. [e.g., Reviews mentioning "fabric" skew negative]
-4. [e.g., Naive Bayes outperformed the lexicon baseline by X points]
+3. [e.g., Reviews mentioning "fabric" lean negative]
+4. [e.g., Naive Bayes beat the lexicon baseline by X points]
 
-## Features
-- Sentiment split and breakdowns by department, class, and age group
-- Model comparison with a confusion matrix
-- Top keywords and themes in negative reviews
-- "Try it" box to score any review, with influential words highlighted
-- Filters that update every chart
+## What You Can Do in the App
+- See the sentiment split, plus breakdowns by department, class, and age group
+- Compare both models side by side, with a confusion matrix
+- Explore the top keywords and themes in negative reviews
+- Paste in any review and see its score, with the most influential words highlighted
+- Use filters that update every chart
 
 ## Preview
 ![Dashboard Screenshot](images/dashboard.png)
 
 ## Limitations
-- Sentiment labels come from star ratings, which can be noisy (a 3-star review may be positive or negative)
-- Bag-of-words models can miss sarcasm and context
-- [Class imbalance: most reviews are positive, so recall for negative reviews matters more than overall accuracy]
+- Labels come from star ratings, which can be noisy. A 3-star review might read as positive or negative.
+- Word-count models can miss sarcasm and context.
+- [Most reviews are positive, so recall on negative reviews matters more than overall accuracy.]
 
-## How to Run
+## Run It Yourself
 ```bash
 git clone https://github.com/[your-username]/[repo-name].git
 cd [repo-name]
@@ -69,7 +69,8 @@ cd [repo-name]
 ```
 
 ## What I Learned
-[e.g., text preprocessing, comparing a baseline with a trained model, evaluating with F1 on imbalanced data, turning model output into business recommendations]
+[e.g., how to clean messy text, why a baseline matters before training a model, why F1 is more honest than accuracy on imbalanced data, and how to turn model output into recommendations a business could act on]
 
-## Author
-**Aditi Jhinjar** | [LinkedIn](https://linkedin.com/in/aditi-jhinjar-63040a28b) | [GitHub](https://github.com/AditiJhinjar12)
+## About Me
+I'm Aditi Jhinjar, a final-year B.Tech CSE student building my data analytics portfolio.
+[LinkedIn](https://linkedin.com/in/aditi-jhinjar-63040a28b) | [GitHub](https://github.com/AditiJhinjar12)
